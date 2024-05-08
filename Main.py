@@ -4,7 +4,7 @@ import subprocess
 def download_song(song_name):
     try:
         search_query = f'ytsearch:{song_name} audio'
-        cmd = ['youtube-dl', '--extract-audio', '--audio-format', 'mp3', '--output', 'downloads/%(title)s.%(ext)s', search_query]
+        cmd = ['youtube-dl', '--extract-audio', '--audio-format', 'mp3', '--audio-quality', '0', '--output', 'downloads/%(title)s.%(ext)s', search_query]
         subprocess.run(cmd, check=True)
         print(f"Downloaded: {song_name}")
     except subprocess.CalledProcessError as e:
